@@ -8,17 +8,26 @@
 
     <div class="mb-3">
         <label for="title" class="form-label">Title</label>
-        <input type="text" name="title" value="{{ $product->title }}" class="form-control" required>
+        <input type="text" name="title" value="{{ old('title', $product->title) }}" class="form-control @error('title') is-invalid @enderror" required>
+        @error('title')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
     </div>
 
     <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-        <textarea name="description" class="form-control" required>{{ $product->description }}</textarea>
+        <textarea name="description" class="form-control @error('description') is-invalid @enderror" required>{{ old('description', $product->description) }}</textarea>
+        @error('description')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
     </div>
 
     <div class="mb-3">
         <label for="price" class="form-label">Price</label>
-        <input type="number" name="price" value="{{ $product->price }}" class="form-control" required>
+        <input type="number" name="price" value="{{ old('price', $product->price) }}" class="form-control @error('price') is-invalid @enderror" required>
+        @error('price')
+            <div class="text-danger">{{ $message }}</div>
+        @enderror
     </div>
 
     <button type="submit" class="btn btn-success">Update Product</button>

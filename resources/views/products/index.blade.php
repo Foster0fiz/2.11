@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
-@section('title', 'All Products')
+@section('title', 'Products')
 
 @section('content')
-    <h1 class="text-center">Product CRUD</h1>
-    <a href="{{ route('products.create') }}" class="btn btn-primary">Add New Product</a>
-    <table class="table mt-3">
+    <h1 class="text-center">Product List</h1>
+    <a href="{{ route('products.create') }}" class="btn btn-primary mb-3">Add New Product</a>
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <th>ID</th>
