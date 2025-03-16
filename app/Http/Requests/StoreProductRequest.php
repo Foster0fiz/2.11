@@ -6,12 +6,12 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreProductRequest extends FormRequest
 {
-    public function authorize()
+    public function authorize(): bool
     {
         return true;
     }
 
-    public function rules()
+    public function rules(): array
     {
         return [
             'title' => 'required|string|max:255',
@@ -23,9 +23,9 @@ class StoreProductRequest extends FormRequest
     public function messages()
     {
         return [
-            'title.required' => 'The title field is required.',
-            'description.required' => 'The description field is required.',
-            'price.required' => 'The price field is required.',
+            'title.required' => 'The title is required.',
+            'description.required' => 'The description is required.',
+            'price.required' => 'The price is required.',
             'price.numeric' => 'The price must be a number.',
         ];
     }

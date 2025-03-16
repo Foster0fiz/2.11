@@ -21,10 +21,12 @@ class ProductController extends Controller
     }
 
     public function store(StoreProductRequest $request)
-    {
-        Product::create($request->validated());
-        return redirect()->route('products.index')->with('success', 'Product created successfully!');
-    }
+{
+    Product::create($request->validated());
+
+    return redirect()->route('products.index')->with('success', 'Product added successfully!');
+}
+
 
     public function edit(Product $product)
     {
@@ -34,7 +36,7 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product $product)
     {
         $product->update($request->validated());
-        return redirect()->route('products.index')->with('success', 'Product updated successfully!');
+        return redirect()->route('products.index');
     }
 
     public function destroy(Product $product)
